@@ -580,6 +580,747 @@ console.log(typeof 123n); // "bigint"
 
 ---
 
+### ⚙️ **Chapter 3: Operators**
+
+<div align="center">
+
+![Operators](https://img.shields.io/badge/Operators-Logic_Builders-orange?style=for-the-badge&logo=javascript&logoColor=white)
+
+</div>
+
+> **🎯 Goal**: Master JavaScript operators for calculations, comparisons, and logic
+
+#### 🔧 **What are Operators?**
+
+Operators are special symbols or keywords in JavaScript used to perform operations on values (operands).
+You'll use them in calculations, comparisons, logic, assignments, and even type checks.
+Think of them as the **verbs of your code** — they act on data.
+
+#### ➕ **Arithmetic Operators**
+
+Used for basic math operations:
+
+| 🔢 **Operator** | 📝 **Description**     | 💡 **Example** |
+| --------------- | ---------------------- | -------------- |
+| `+`             | Addition               | `5 + 3 = 8`    |
+| `-`             | Subtraction            | `5 - 3 = 2`    |
+| `*`             | Multiplication         | `5 * 3 = 15`   |
+| `/`             | Division               | `6 / 3 = 2`    |
+| `%`             | Modulus (remainder)    | `5 % 3 = 2`    |
+| `**`            | Exponentiation (power) | `2 ** 3 = 8`   |
+
+**Example:**
+
+```javascript
+let a = 10,
+  b = 3;
+console.log(a + b); // 13
+console.log(a % b); // 1
+console.log(2 ** 3); // 8
+```
+
+#### 🧮 **Assignment Operators**
+
+Assign values to variables:
+
+| 🔧 **Operator**  | 📝 **Description**                 | 💡 **Example**         |
+| ---------------- | ---------------------------------- | ---------------------- |
+| `=`              | Assigns value                      | `x = 5`                |
+| `+=`             | Add and assign                     | `x += 3` → `x = x + 3` |
+| `-=`             | Subtract and assign                | `x -= 2` → `x = x - 2` |
+| `*=`, `/=`, `%=` | Multiply/Divide/Modulus and assign | `x *= 2`               |
+
+**Example:**
+
+```javascript
+let score = 5;
+score += 2; // score = 7
+```
+
+#### 🧾 **Comparison Operators**
+
+Used in condition checks:
+
+| 🔍 **Operator**      | 📝 **Description** | 💡 **Example**        |
+| -------------------- | ------------------ | --------------------- |
+| `==`                 | Equal (loose)      | `5 == "5"` → `true`   |
+| `===`                | Equal (strict)     | `5 === "5"` → `false` |
+| `!=`                 | Not equal (loose)  | `5 != "6"` → `true`   |
+| `!==`                | Not equal (strict) | `5 !== "5"` → `true`  |
+| `>`, `<`, `>=`, `<=` | Greater/Less than  | `5 > 3` → `true`      |
+
+**Example:**
+
+```javascript
+console.log(5 == "5"); // true
+console.log(5 === "5"); // false
+```
+
+#### ✅ **Logical Operators**
+
+Used to combine multiple conditions:
+
+| 🧠 **Operator** | 📝 **Description**       | 💡 **Example**             |
+| --------------- | ------------------------ | -------------------------- |
+| `&&`            | AND - both must be true  | `true && false` → `false`  |
+| `\|\|`          | OR - either one true     | `true \|\| false` → `true` |
+| `!`             | NOT - negates truthiness | `!true` → `false`          |
+
+**Example:**
+
+```javascript
+let age = 20,
+  hasID = true;
+if (age >= 18 && hasID) {
+  console.log("Allowed");
+}
+```
+
+#### 🌀 **Unary Operators**
+
+Used on a single operand:
+
+| 🔧 **Operator** | 📝 **Description** | 💡 **Example**            |
+| --------------- | ------------------ | ------------------------- |
+| `+`             | Convert to number  | `+"5"` → `5`              |
+| `-`             | Negate             | `-5` → `-5`               |
+| `++`            | Increment          | `x++` or `++x`            |
+| `--`            | Decrement          | `x--` or `--x`            |
+| `typeof`        | Returns data type  | `typeof 123` → `"number"` |
+
+**Example:**
+
+```javascript
+let x = "5";
+console.log(+x); // 5 (converted to number)
+```
+
+#### ❓ **Ternary Operator (Conditional)**
+
+Shorthand for if...else:
+
+```javascript
+condition ? valueIfTrue : valueIfFalse;
+```
+
+**Example:**
+
+```javascript
+let score = 80;
+let grade = score > 50 ? "Pass" : "Fail";
+```
+
+#### 🧠 **Developer Mindset**
+
+Operators make logic happen. They help you make decisions, combine values, and create expressions.
+
+**💡 Best Practices:**
+
+- Use `===` instead of `==` to avoid type bugs
+- Use ternary for quick decisions, not complex ones
+- Think in truthy/falsy when using `&&`, `||`, `!`
+
+#### ❓ **Common Confusions**
+
+- `"5" + 1` is `"51"` (string concat), but `"5" - 1` is `4` (number subtract)
+- `!!value` is a quick trick to convert anything into a boolean
+- Pre-increment (`++i`) vs post-increment (`i++`) return different results
+
+#### 🧪 **Interactive Practice Zone**
+
+<details>
+<summary>🎮 <strong>Exercise 1: Predict the Output</strong></summary>
+
+```javascript
+console.log("10" + 1); // ?
+console.log("10" - 1); // ?
+console.log(true + false); // ?
+console.log(!!"JavaScript"); // ?
+```
+
+<details>
+<summary>💡 Answer</summary>
+
+```javascript
+console.log("10" + 1); // "101"
+console.log("10" - 1); // 9
+console.log(true + false); // 1
+console.log(!!"JavaScript"); // true
+```
+
+</details>
+</details>
+
+<details>
+<summary>🎮 <strong>Exercise 2: Ternary Practice</strong></summary>
+
+```javascript
+let age = 17;
+let msg = age >= 18 ? "Adult" : "Minor";
+console.log(msg); // ?
+```
+
+<details>
+<summary>💡 Answer</summary>
+
+```javascript
+console.log(msg); // "Minor"
+```
+
+</details>
+</details>
+
+---
+
+### 🧭 **Chapter 4: Control Flow**
+
+<div align="center">
+
+![Control Flow](https://img.shields.io/badge/Control_Flow-Decision_Making-purple?style=for-the-badge&logo=javascript&logoColor=white)
+
+</div>
+
+> **🎯 Goal**: Master conditional statements and program flow control
+
+#### 🚦 **What is Control Flow?**
+
+Control flow decides **which code runs**, **when it runs**, and **how many times it runs**.
+It's like decision-making + direction in your JavaScript program.
+If operators are the verbs, control flow is the **traffic signal**.
+
+#### 🧱 **if, else if, else**
+
+```javascript
+if (condition) {
+  // runs if condition is true
+} else if (anotherCondition) {
+  // runs if first was false, second is true
+} else {
+  // runs if none are true
+}
+```
+
+**✅ Example:**
+
+```javascript
+let marks = 78;
+if (marks >= 90) {
+  console.log("A");
+} else if (marks >= 75) {
+  console.log("B");
+} else {
+  console.log("C");
+}
+```
+
+#### 🌀 **switch-case**
+
+Great for checking one variable against many values:
+
+```javascript
+switch (value) {
+  case value1:
+    // code
+    break;
+  case value2:
+    // code
+    break;
+  default:
+  // fallback
+}
+```
+
+**✅ Example:**
+
+```javascript
+let fruit = "apple";
+switch (fruit) {
+  case "banana":
+    console.log("Yellow");
+    break;
+  case "apple":
+    console.log("Red");
+    break;
+  default:
+    console.log("Unknown");
+}
+```
+
+#### 🔁 **Early Return Pattern**
+
+Used in functions to exit early if some condition fails:
+
+```javascript
+function checkAge(age) {
+  if (age < 18) return "Denied";
+  return "Allowed";
+}
+```
+
+This avoids deep nesting and makes logic cleaner.
+
+#### ⚠️ **Common Confusions**
+
+- `switch-case` executes all cases after a match unless you `break`
+- `else if` chain works top-down — order matters
+- You can use truthy/falsy values directly in `if`
+
+#### 🧠 **Developer Mindset**
+
+Control flow = **conditional storytelling**.
+It helps your program make choices and respond differently to different inputs.
+Write readable branches. Avoid nesting too deep — use early return if needed.
+
+#### 🧪 **Interactive Practice Zone**
+
+<details>
+<summary>🎮 <strong>Exercise 1: Grade Calculator</strong></summary>
+
+```javascript
+// Write a program that prints A, B, C, D, or F based on marks
+let marks = 85;
+// Your code here:
+```
+
+<details>
+<summary>💡 Solution</summary>
+
+```javascript
+if (marks >= 90) {
+  console.log("A");
+} else if (marks >= 80) {
+  console.log("B");
+} else if (marks >= 70) {
+  console.log("C");
+} else if (marks >= 60) {
+  console.log("D");
+} else {
+  console.log("F");
+}
+```
+
+</details>
+</details>
+
+---
+
+### 🔁 **Chapter 5: Loops**
+
+<div align="center">
+
+![Loops](https://img.shields.io/badge/Loops-Repetition_Masters-red?style=for-the-badge&logo=javascript&logoColor=white)
+
+</div>
+
+> **🎯 Goal**: Master iteration and repetitive tasks in JavaScript
+
+#### 🔄 **Why Loops?**
+
+Loops help us repeat code without rewriting it.
+If a task needs to be done multiple times (e.g., printing 1–10, going through an array, or checking each character in a string), loops are the **backbone**.
+
+#### 🔁 **for Loop**
+
+```javascript
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+```
+
+- Start from `i = 0`
+- Run till `i < 5`
+- Increase `i` each time
+
+#### 🔁 **while Loop**
+
+```javascript
+let i = 0;
+while (i < 5) {
+  console.log(i);
+  i++;
+}
+```
+
+Condition is checked **before** running.
+
+#### 🔁 **do-while Loop**
+
+```javascript
+let i = 0;
+do {
+  console.log(i);
+  i++;
+} while (i < 5);
+```
+
+Runs **at least once**, even if condition is false.
+
+#### ⛔ **break and continue**
+
+- **`break`**: Exit loop completely
+- **`continue`**: Skip current iteration and move to next
+
+```javascript
+for (let i = 1; i <= 5; i++) {
+  if (i === 3) continue;
+  console.log(i); // Skips 3
+}
+```
+
+#### 🌀 **for-of – Arrays & Strings**
+
+Works on anything iterable (arrays, strings):
+
+```javascript
+for (let char of "JavaScript") {
+  console.log(char);
+}
+```
+
+#### 🧱 **forEach – Arrays**
+
+Cleaner than `for` for arrays, but you can't `break`/`return`:
+
+```javascript
+let nums = [10, 20, 30];
+nums.forEach((num) => {
+  console.log(num);
+});
+```
+
+#### 🧱 **for-in – Objects**
+
+Goes over keys in objects:
+
+```javascript
+let user = { name: "John", age: 26 };
+for (let key in user) {
+  console.log(key, user[key]);
+}
+```
+
+#### 🧠 **Developer Mindset**
+
+Loops = **data processor**.
+Use the right loop for the job:
+
+- **`for`** = best for numbers/indexes
+- **`for-of`** = for array values
+- **`for-in`** = for object keys
+- **`while`** = for unpredictable conditions
+
+---
+
+### 🧮 **Chapter 6: Functions**
+
+<div align="center">
+
+![Functions](https://img.shields.io/badge/Functions-Reusable_Logic-teal?style=for-the-badge&logo=javascript&logoColor=white)
+
+</div>
+
+> **🎯 Goal**: Master function creation, parameters, and advanced concepts
+
+#### 🧠 **What are Functions?**
+
+Functions are **blocks of reusable logic**.
+Instead of repeating the same task again and again, wrap it in a function and reuse it with different inputs.
+
+Think of a function like a **vending machine**:
+
+- **Input**: you give money + item code
+- **Output**: it gives you the item
+- **Logic**: hidden inside
+
+#### 🛠️ **Function Declarations**
+
+```javascript
+function greet() {
+  console.log("Welcome to JavaScript!");
+}
+greet();
+```
+
+You define it once, then call it whenever needed.
+
+#### 🧾 **Parameters vs Arguments**
+
+```javascript
+function greet(name) {
+  // 'name' is a parameter
+  console.log("Hello " + name);
+}
+greet("John"); // "John" is the argument you pass
+```
+
+#### 🌀 **Return Values**
+
+```javascript
+function sum(a, b) {
+  return a + b;
+}
+let total = sum(5, 10); // total is 15
+```
+
+- `return` sends back a result to wherever the function was called
+- After `return`, function exits
+
+#### 🧰 **Function Expressions**
+
+```javascript
+const greet = function () {
+  console.log("Hello!");
+};
+```
+
+Functions stored in variables. Cannot be hoisted (you can't call them before they're defined).
+
+#### 🏹 **Arrow Functions**
+
+```javascript
+const greet = () => {
+  console.log("Hi!");
+};
+```
+
+- Cleaner syntax
+- No own `this`, no `arguments` object
+
+#### 🧂 **Default + Rest + Spread**
+
+```javascript
+function multiply(a = 1, b = 1) {
+  // Default parameters
+  return a * b;
+}
+
+function sum(...nums) {
+  // Rest parameter
+  return nums.reduce((acc, val) => acc + val, 0);
+}
+
+let nums = [1, 2, 3];
+console.log(sum(...nums)); // Spread operator
+```
+
+#### 🔐 **Closures & Lexical Scope**
+
+Closures = when a function remembers its parent scope, even after the parent has finished.
+
+```javascript
+function outer() {
+  let count = 0;
+  return function () {
+    count++;
+    console.log(count);
+  };
+}
+let counter = outer();
+counter(); // 1
+counter(); // 2
+```
+
+Even after `outer` is done, `counter` still remembers `count`.
+
+---
+
+### 🧰 **Chapter 7: Arrays**
+
+<div align="center">
+
+![Arrays](https://img.shields.io/badge/Arrays-Data_Collections-indigo?style=for-the-badge&logo=javascript&logoColor=white)
+
+</div>
+
+> **🎯 Goal**: Master array manipulation and iteration methods
+
+#### 🧠 **What is an Array?**
+
+An array is like a **row of boxes**, where each box holds a value and has an index (0, 1, 2...).
+Arrays help you store multiple values in a single variable — numbers, strings, or even objects/functions.
+
+#### 🛠️ **Creating & Accessing Arrays**
+
+```javascript
+let fruits = ["apple", "banana", "mango"];
+
+let marks = [90, 85, 78];
+console.log(marks[1]); // 85
+marks[2] = 80; // Update index 2
+```
+
+- Indexing starts from **0**
+- You can access, update, or overwrite values by index
+
+#### ⚙️ **Common Array Methods**
+
+**🧱 Modifiers (Change original array):**
+
+```javascript
+let arr = [1, 2, 3, 4];
+arr.push(5); // Add to end
+arr.pop(); // Remove last
+arr.shift(); // Remove first
+arr.unshift(0); // Add to start
+arr.splice(1, 2); // Remove 2 items starting at index 1
+arr.reverse(); // Reverse order
+```
+
+**🔍 Extractors (Don't modify original array):**
+
+```javascript
+let newArr = arr.slice(1, 3); // Copy from index 1 to 2
+arr.sort(); // Lexical sort by default
+```
+
+#### 🔄 **Iteration Methods**
+
+**`map()`** - Returns a new array with modified values:
+
+```javascript
+let prices = [100, 200, 300];
+let taxed = prices.map((p) => p * 1.18);
+```
+
+**`filter()`** - Filters out elements based on a condition:
+
+```javascript
+let nums = [1, 2, 3, 4];
+let even = nums.filter((n) => n % 2 === 0);
+```
+
+**`reduce()`** - Reduces the array to a single value:
+
+```javascript
+let total = nums.reduce((acc, val) => acc + val, 0);
+```
+
+**`forEach()`** - Performs an action for each element:
+
+```javascript
+nums.forEach((n) => console.log(n));
+```
+
+#### ✂️ **Destructuring & Spread**
+
+```javascript
+let [first, second] = ["a", "b", "c"];
+let newArr = [...nums, 99]; // Spread to copy & add
+```
+
+---
+
+### 🧱 **Chapter 8: Objects**
+
+<div align="center">
+
+![Objects](https://img.shields.io/badge/Objects-Structured_Data-pink?style=for-the-badge&logo=javascript&logoColor=white)
+
+</div>
+
+> **🎯 Goal**: Master object creation, manipulation, and advanced patterns
+
+#### 🧠 **What is an Object?**
+
+Objects in JavaScript are like **real-world records** – a collection of key-value pairs.
+They help us store structured data (like a student, a product, or a user profile).
+
+#### 🔑 **Key-Value Structure**
+
+```javascript
+let student = {
+  name: "Ravi",
+  age: 21,
+  isEnrolled: true,
+};
+
+console.log(student["name"]); // Ravi
+console.log(student.age); // 21
+```
+
+- Keys are always strings (even if you write them as numbers or identifiers)
+- Values can be anything – string, number, array, object, function, etc.
+
+#### 📍 **Dot vs Bracket Notation**
+
+```javascript
+student["full name"] = "Ravi Kumar"; // ✅ Use bracket for multi-word keys
+student.course = "JavaScript"; // ✅ Use dot for simple keys
+```
+
+#### 🏗️ **Nesting and Deep Access**
+
+```javascript
+let user = {
+  name: "Amit",
+  address: {
+    city: "Delhi",
+    pincode: 110001,
+  },
+};
+console.log(user.address.city); // Delhi
+```
+
+#### ✂️ **Object Destructuring**
+
+```javascript
+let { name, age } = student;
+
+// For nested objects:
+let {
+  address: { city },
+} = user;
+```
+
+#### 🔁 **Looping Through Objects**
+
+```javascript
+for (let key in student) {
+  console.log(key, student[key]);
+}
+
+Object.keys(student); // ["name", "age", "isEnrolled"]
+Object.entries(student); // [["name", "Ravi"], ["age", 21], ...]
+```
+
+#### 📦 **Copying Objects**
+
+**Shallow Copy (one level deep):**
+
+```javascript
+let newStudent = { ...student };
+let newOne = Object.assign({}, student);
+```
+
+**Deep Copy (nested levels):**
+
+```javascript
+let deepCopy = JSON.parse(JSON.stringify(user));
+```
+
+#### ❓ **Optional Chaining**
+
+```javascript
+console.log(user?.address?.city); // Delhi
+console.log(user?.profile?.email); // undefined (no error)
+```
+
+#### 🧠 **Computed Properties**
+
+```javascript
+let key = "marks";
+let report = {
+  [key]: 89,
+};
+```
+
+#### 🧠 **Developer Mindset**
+
+Objects are **structured state** – perfect for modeling anything complex: a user, a form, a product, etc.
+Use destructuring, chaining, and dynamic keys wisely.
+
+---
+
 ## 🛠️ **Setup & Prerequisites**
 
 ### 📋 **What You Need**
