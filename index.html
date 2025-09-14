@@ -3,25 +3,388 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <title>JavaScript Complete Learning Guide - Interactive Examples</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2em;
+        }
+        
+        .chapter {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .chapter h2 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .example-section {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .example-section h3 {
+            color: #2980b9;
+            margin-bottom: 15px;
+        }
+        
+        button {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+        
+        .output {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            min-height: 50px;
+            white-space: pre-wrap;
+        }
+        
+        .interview-question {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .interview-question h4 {
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .solution {
+            background: #27ae60;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        
+        .navigation {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navigation select {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .navigation {
+                position: static;
+                margin-bottom: 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Website</h1>
-    </header>
-    
-    <main>
-        <section>
-            <h2>Main Content</h2>
-            <p>Your content goes here.</p>
-        </section>
-    </main>
-    
-    <footer>
-        <p>&copy; 2025 Your Name. All rights reserved.</p>
-    </footer>
-    
+    <div class="container">
+        <header>
+            <h1>🚀 JavaScript Complete Learning Guide</h1>
+            <p class="subtitle">Interactive Examples & Interview Questions</p>
+        </header>
+        
+        <div class="navigation">
+            <label for="chapterSelect">Jump to Chapter:</label>
+            <select id="chapterSelect" onchange="navigateToChapter()">
+                <option value="">Select Chapter</option>
+                <option value="variables">Chapter 1: Variables</option>
+                <option value="datatypes">Chapter 2: Data Types</option>
+                <option value="operators">Chapter 3: Operators</option>
+                <option value="controlflow">Chapter 4: Control Flow</option>
+                <option value="loops">Chapter 5: Loops</option>
+                <option value="functions">Chapter 6: Functions</option>
+                <option value="arrays">Chapter 7: Arrays</option>
+                <option value="objects">Chapter 8: Objects</option>
+                <option value="interview">Interview Questions</option>
+            </select>
+        </div>
+
+        <!-- Chapter 1: Variables -->
+        <div class="chapter" id="variables">
+            <h2>🧠 Chapter 1: Variables</h2>
+            
+            <div class="example-section">
+                <h3>Variable Declarations</h3>
+                <button onclick="demonstrateVariables()">Run Variable Examples</button>
+                <div class="output" id="variableOutput"></div>
+            </div>
+            
+            <div class="example-section">
+                <h3>Hoisting Demonstration</h3>
+                <button onclick="demonstrateHoisting()">Show Hoisting</button>
+                <div class="output" id="hoistingOutput"></div>
+            </div>
+            
+            <div class="example-section">
+                <h3>Scope Examples</h3>
+                <button onclick="demonstrateScope()">Test Scope</button>
+                <div class="output" id="scopeOutput"></div>
+            </div>
+        </div>
+
+        <!-- Chapter 2: Data Types -->
+        <div class="chapter" id="datatypes">
+            <h2>📦 Chapter 2: Data Types</h2>
+            
+            <div class="example-section">
+                <h3>Type Checking</h3>
+                <button onclick="demonstrateTypes()">Check Types</button>
+                <div class="output" id="typesOutput"></div>
+            </div>
+            
+            <div class="example-section">
+                <h3>Type Coercion</h3>
+                <button onclick="demonstrateCoercion()">Show Coercion</button>
+                <div class="output" id="coercionOutput"></div>
+            </div>
+            
+            <div class="example-section">
+                <h3>Null vs Undefined</h3>
+                <button onclick="demonstrateNullUndefined()">Compare Null & Undefined</button>
+                <div class="output" id="nullUndefinedOutput"></div>
+            </div>
+        </div>
+
+        <!-- Chapter 3: Operators -->
+        <div class="chapter" id="operators">
+            <h2>⚙️ Chapter 3: Operators</h2>
+            
+            <div class="example-section">
+                <h3>Arithmetic Operations</h3>
+                <button onclick="demonstrateArithmetic()">Run Arithmetic</button>
+                <div class="output" id="arithmeticOutput"></div>
+            </div>
+            
+            <div class="example-section">
+                <h3>Comparison Operators</h3>
+                <button onclick="demonstrateComparison()">Test Comparisons</button>
+                <div class="output" id="comparisonOutput"></div>
+            </div>
+            
+            <div class="example-section">
+                <h3>Logical Operators</h3>
+                <button onclick="demonstrateLogical()">Show Logic</button>
+                <div class="output" id="logicalOutput"></div>
+            </div>
+        </div>
+
+        <!-- Chapter 4: Control Flow -->
+        <div class="chapter" id="controlflow">
+            <h2>🧭 Chapter 4: Control Flow</h2>
+            
+            <div class="example-section">
+                <h3>If-Else Statements</h3>
+                <button onclick="demonstrateIfElse()">Test Conditions</button>
+                <div class="output" id="ifElseOutput"></div>
+            </div>
+            
+            <div class="example-section">
+                <h3>Switch Case</h3>
+                <button onclick="demonstrateSwitch()">Run Switch</button>
+                <div class="output" id="switchOutput"></div>
+            </div>
+        </div>
+
+        <!-- Chapter 5: Loops -->
+        <div class="chapter" id="loops">
+            <h2>🔁 Chapter 5: Loops</h2>
+            
+            <div class="example-section">
+                <h3>Different Loop Types</h3>
+                <button onclick="demonstrateLoops()">Run Loops</button>
+                <div class="output" id="loopsOutput"></div>
+            </div>
+            
+            <div class="example-section">
+                <h3>Loop Control</h3>
+                <button onclick="demonstrateLoopControl()">Break & Continue</button>
+                <div class="output" id="loopControlOutput"></div>
+            </div>
+        </div>
+
+        <!-- Chapter 6: Functions -->
+        <div class="chapter" id="functions">
+            <h2>🧮 Chapter 6: Functions</h2>
+            
+            <div class="example-section">
+                <h3>Function Types</h3>
+                <button onclick="demonstrateFunctions()">Test Functions</button>
+                <div class="output" id="functionsOutput"></div>
+            </div>
+            
+            <div class="example-section">
+                <h3>Closures</h3>
+                <button onclick="demonstrateClosures()">Show Closures</button>
+                <div class="output" id="closuresOutput"></div>
+            </div>
+        </div>
+
+        <!-- Chapter 7: Arrays -->
+        <div class="chapter" id="arrays">
+            <h2>🧰 Chapter 7: Arrays</h2>
+            
+            <div class="example-section">
+                <h3>Array Methods</h3>
+                <button onclick="demonstrateArrays()">Test Arrays</button>
+                <div class="output" id="arraysOutput"></div>
+            </div>
+            
+            <div class="example-section">
+                <h3>Array Iteration</h3>
+                <button onclick="demonstrateArrayIteration()">Iterate Arrays</button>
+                <div class="output" id="arrayIterationOutput"></div>
+            </div>
+        </div>
+
+        <!-- Chapter 8: Objects -->
+        <div class="chapter" id="objects">
+            <h2>🧱 Chapter 8: Objects</h2>
+            
+            <div class="example-section">
+                <h3>Object Operations</h3>
+                <button onclick="demonstrateObjects()">Test Objects</button>
+                <div class="output" id="objectsOutput"></div>
+            </div>
+            
+            <div class="example-section">
+                <h3>Object Methods</h3>
+                <button onclick="demonstrateObjectMethods()">Object Methods</button>
+                <div class="output" id="objectMethodsOutput"></div>
+            </div>
+        </div>
+
+        <!-- Interview Questions -->
+        <div class="chapter" id="interview">
+            <h2>🎯 Important Interview Questions</h2>
+            
+            <div class="interview-question">
+                <h4>Q1: What is the difference between var, let, and const?</h4>
+                <button onclick="showAnswer('answer1')">Show Answer</button>
+                <div class="solution" id="answer1" style="display: none;">
+                    <strong>Answer:</strong> var is function-scoped and can be redeclared, let is block-scoped and can be reassigned but not redeclared, const is block-scoped and cannot be reassigned or redeclared.
+                </div>
+            </div>
+            
+            <div class="interview-question">
+                <h4>Q2: Explain hoisting in JavaScript</h4>
+                <button onclick="showAnswer('answer2')">Show Answer</button>
+                <div class="solution" id="answer2" style="display: none;">
+                    <strong>Answer:</strong> Hoisting is JavaScript's behavior of moving declarations to the top of their scope during compilation. Variables declared with var are hoisted and initialized with undefined, while let and const are hoisted but remain in TDZ.
+                </div>
+            </div>
+            
+            <div class="interview-question">
+                <h4>Q3: What is a closure?</h4>
+                <button onclick="showAnswer('answer3')">Show Answer</button>
+                <div class="solution" id="answer3" style="display: none;">
+                    <strong>Answer:</strong> A closure is a function that has access to variables in its outer (enclosing) scope even after the outer function has returned. It "closes over" the variables from its lexical scope.
+                </div>
+            </div>
+            
+            <div class="interview-question">
+                <h4>Q4: Difference between == and ===?</h4>
+                <button onclick="showAnswer('answer4')">Show Answer</button>
+                <div class="solution" id="answer4" style="display: none;">
+                    <strong>Answer:</strong> == performs type coercion and compares values after converting them to the same type. === performs strict comparison without type coercion, comparing both value and type.
+                </div>
+            </div>
+            
+            <div class="interview-question">
+                <h4>Q5: What is the difference between null and undefined?</h4>
+                <button onclick="showAnswer('answer5')">Show Answer</button>
+                <div class="solution" id="answer5" style="display: none;">
+                    <strong>Answer:</strong> undefined means a variable has been declared but not assigned a value. null is an intentional assignment representing "no value" or "empty value".
+                </div>
+            </div>
+            
+            <div class="example-section">
+                <h3>Interactive Interview Practice</h3>
+                <button onclick="runInterviewQuestions()">Practice Questions</button>
+                <div class="output" id="interviewOutput"></div>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
