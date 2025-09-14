@@ -119,15 +119,16 @@ flowchart LR
 
 **💡 Best Practice Decision Tree:**
 
-```mermaid
-graph TD
-    A[🤔 Need a Variable?] --> B{🔄 Will it change?}
-    B -->|No| C[✅ Use const]
-    B -->|Yes| D{📦 Primitive or Object?}
-    D -->|Primitive| E[✅ Use let]
-    D -->|Object/Array| F{📝 Contents change?}
-    F -->|Yes| G[✅ Use const]
-    F -->|No| H[✅ Use let]
+```
+🤔 Need a Variable?
+    ↓
+🔄 Will it change?
+    ├─ No → ✅ Use const
+    └─ Yes → 📦 Primitive or Object?
+              ├─ Primitive → ✅ Use let  
+              └─ Object/Array → 📝 Contents change?
+                                ├─ Yes → ✅ Use const
+                                └─ No → ✅ Use let
 ```
 
 **🧪 var, let, and const Comparison**
@@ -190,25 +191,19 @@ colors = []; // ❌ Error - reassigning variable
 
 **🔥 Scope Visualization**
 
-```mermaid
-graph TB
-    subgraph "🌍 Global Scope"
-        A[var globalVar]
-        B[let globalLet]
-        C[const globalConst]
-        
-        subgraph "🏠 Function Scope"
-            D[var functionVar]
-            E[let functionLet]
-            F[const functionConst]
-            
-            subgraph "📦 Block Scope {}"
-                G[let blockLet]
-                H[const blockConst]
-                I[var leaksOut ⚠️]
-            end
-        end
-    end
+```
+🌍 Global Scope
+├── var globalVar
+├── let globalLet  
+├── const globalConst
+└── 🏠 Function Scope
+    ├── var functionVar
+    ├── let functionLet
+    ├── const functionConst
+    └── 📦 Block Scope {}
+        ├── let blockLet
+        ├── const blockConst
+        └── var leaksOut ⚠️ (WARNING: escapes block!)
 ```
 
 **📍 Scope Rules:**
@@ -231,15 +226,15 @@ console.log(z); // ❌ ReferenceError
 **🧨 Hoisting Behavior**
 
 ```mermaid
-graph TD
-    A[🚀 JavaScript Engine Starts] --> B[📋 Phase 1: Memory Allocation]
-    B --> C[⚡ Phase 2: Code Execution]
+flowchart TD
+    A["JavaScript Engine Starts"] --> B["Phase 1: Memory Allocation"]
+    B --> C["Phase 2: Code Execution"]
     
-    B --> D[var: undefined]
-    B --> E[let/const: TDZ]
+    B --> D["var: undefined"]
+    B --> E["let/const: TDZ"]
     
-    C --> F[Access var: undefined]
-    C --> G[Access let/const: ReferenceError]
+    C --> F["Access var: undefined"]
+    C --> G["Access let/const: ReferenceError"]
 ```
 
 **Hoisting Examples:**
