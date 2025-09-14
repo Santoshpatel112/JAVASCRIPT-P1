@@ -100,6 +100,7 @@ function demonstrateScope() {
     
     result += "=== SCOPE DEMONSTRATION ===\n";
     
+    
     // Function scope
     function testFunctionScope() {
         var functionVar = "I'm function scoped";
